@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shield — defensive security workflow engine</title>
+<meta name="description" content="Shield turns raw security-tool output into structured, prioritised findings through declarative, repeatable assessment workflows.">
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#121820; --line:#1e2733;
+    --ink:#e8eef5; --muted:#9fb0c3; --accent:#3ea6ff; --accent2:#49d0b0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+  header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+  .kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--accent2);margin:0 0 14px}
+  h1{font-size:44px;line-height:1.1;margin:0 0 16px;font-weight:700}
+  .lede{font-size:20px;color:var(--muted);margin:0;max-width:62ch}
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:22px;margin:0 0 18px}
+  p{color:var(--ink)}
+  .muted{color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:8px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .card h3{margin:0 0 8px;font-size:16px;color:var(--accent)}
+  .card p{margin:0;font-size:14.5px;color:var(--muted)}
+  ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+  ul.clean li{padding-left:22px;position:relative;color:var(--muted)}
+  ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:var(--accent2)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:#0f141b}
+  footer{padding:36px 0 64px;color:var(--muted);font-size:14px}
+  footer a{color:var(--accent);text-decoration:none}
+  @media(max-width:600px){h1{font-size:34px}.lede{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">EchlonLabs · Defensive security</p>
+    <h1>Shield</h1>
+    <p class="lede">A defensive security workflow engine. Shield runs multi-step assessments as declared, repeatable workflows and turns raw tool output into structured, prioritised findings.</p>
+  </header>
+
+  <section>
+    <h2>What it does</h2>
+    <p class="muted">Most scanning is one tool, one command, one wall of text to read by hand. Shield models an assessment as a <strong style="color:var(--ink)">workflow</strong> — an ordered set of steps with a clear goal — runs it against a target, and normalises every tool's output into a single finding format you can triage, track and compare across runs.</p>
+  </section>
+
+  <section>
+    <h2>Core pieces</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Workflow engine</h3>
+        <p>Declarative, multi-step assessments instead of one-off commands — each step with its own inputs, outputs and success criteria.</p>
+      </div>
+      <div class="card">
+        <h3>Workflow library</h3>
+        <p>Pre-built templates covering recon, network and web scanning, API and cloud audits, container and dependency review, and more.</p>
+      </div>
+      <div class="card">
+        <h3>Unified findings</h3>
+        <p>Result parsers normalise each tool's raw output into one common finding format, so results are comparable and trackable.</p>
+      </div>
+      <div class="card">
+        <h3>CVE intelligence</h3>
+        <p>Matches discovered service versions against known CVE data to surface likely exposures automatically.</p>
+      </div>
+      <div class="card">
+        <h3>Live dashboard</h3>
+        <p>A React dashboard with a target list, scan queue, results panel and real-time workflow visualisation.</p>
+      </div>
+      <div class="card">
+        <h3>Runs on your own machine</h3>
+        <p>Shield is self-hosted. It orchestrates tools locally and keeps findings on infrastructure you control.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Built for</h2>
+    <ul class="clean">
+      <li>Authorised security assessments and internal audits</li>
+      <li>Turning ad-hoc scanning into repeatable, reviewable process</li>
+      <li>Security research and education, with explicit permission on in-scope targets</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">Python · Flask</span>
+      <span class="tag">React · TypeScript · Vite</span>
+      <span class="tag">REST + Socket.IO</span>
+      <span class="tag">Self-hosted</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>Shield is a defensive tool, intended only for systems you own or are explicitly authorised to test. You are responsible for complying with all applicable laws.</p>
+    <p>An <strong style="color:var(--ink)">EchlonLabs</strong> project · <a href="https://echlonlabs.com">echlonlabs.com</a></p>
+  </footer>
+</div>
+</body>
+</html>
