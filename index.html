@@ -3,99 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shield — defensive security workflow engine</title>
-<meta name="description" content="Shield turns raw security-tool output into structured, prioritised findings through declarative, repeatable assessment workflows.">
+<title>Shield — turn scans into decisions</title>
+<meta name="description" content="Shield is a defensive security workflow engine: it runs repeatable assessments and turns raw tool output into prioritised, trackable findings.">
 <style>
   :root{
-    --bg:#0b0f14; --panel:#121820; --line:#1e2733;
-    --ink:#e8eef5; --muted:#9fb0c3; --accent:#3ea6ff; --accent2:#49d0b0;
+    --bg:#0b0f14; --panel:#121a24; --line:#1e2a38;
+    --ink:#eaf1f8; --muted:#9fb3c7; --accent:#3ea6ff; --accent2:#49d0b0;
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{margin:0;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
-  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
-  header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
-  .kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--accent2);margin:0 0 14px}
-  h1{font-size:44px;line-height:1.1;margin:0 0 16px;font-weight:700}
-  .lede{font-size:20px;color:var(--muted);margin:0;max-width:62ch}
-  section{padding:44px 0;border-bottom:1px solid var(--line)}
-  h2{font-size:22px;margin:0 0 18px}
-  p{color:var(--ink)}
-  .muted{color:var(--muted)}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:8px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
-  .card h3{margin:0 0 8px;font-size:16px;color:var(--accent)}
-  .card p{margin:0;font-size:14.5px;color:var(--muted)}
-  ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-  ul.clean li{padding-left:22px;position:relative;color:var(--muted)}
-  ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:var(--accent2)}
-  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-  .tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:#0f141b}
-  footer{padding:36px 0 64px;color:var(--muted);font-size:14px}
-  footer a{color:var(--accent);text-decoration:none}
-  @media(max-width:600px){h1{font-size:34px}.lede{font-size:18px}}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+  nav .brand{font-weight:700;letter-spacing:.02em}
+  nav .brand span{color:var(--accent2)}
+  nav a.cta{background:var(--accent);color:#06121f;padding:9px 16px;border-radius:8px;font-weight:600}
+  header{padding:84px 0 56px;text-align:center}
+  .pill{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);
+    border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:22px}
+  h1{font-size:52px;line-height:1.08;margin:0 0 18px;font-weight:800}
+  .lede{font-size:21px;color:var(--muted);margin:0 auto 30px;max-width:60ch}
+  .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:13px 24px;border-radius:10px;font-weight:600}
+  .btn.primary{background:var(--accent);color:#06121f}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink)}
+  section{padding:56px 0;border-top:1px solid var(--line)}
+  h2{font-size:28px;margin:0 0 10px;text-align:center}
+  .sub{color:var(--muted);text-align:center;margin:0 auto 34px;max-width:56ch}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .card h3{margin:0 0 8px;font-size:17px;color:var(--accent)}
+  .card p{margin:0;font-size:15px;color:var(--muted)}
+  .steps{counter-reset:s;max-width:720px;margin:0 auto;display:grid;gap:14px}
+  .step{display:flex;gap:16px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .step::before{counter-increment:s;content:counter(s);flex:none;width:30px;height:30px;border-radius:8px;
+    background:var(--accent2);color:#06121f;font-weight:700;display:grid;place-items:center}
+  .step p{margin:0;color:var(--muted);font-size:15px}
+  .step b{color:var(--ink)}
+  .contact{text-align:center}
+  .contact .card{max-width:560px;margin:0 auto}
+  .contact a.mail{font-size:20px;font-weight:700}
+  footer{padding:40px 0 64px;color:var(--muted);font-size:14px;text-align:center;border-top:1px solid var(--line)}
+  @media(max-width:600px){h1{font-size:38px}.lede{font-size:18px}}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <nav>
+    <div class="brand">Echlon<span>Labs</span> · Shield</div>
+    <a class="cta" href="#contact">Contact us</a>
+  </nav>
+
   <header>
-    <p class="kicker">EchlonLabs · Defensive security</p>
-    <h1>Shield</h1>
-    <p class="lede">A defensive security workflow engine. Shield runs multi-step assessments as declared, repeatable workflows and turns raw tool output into structured, prioritised findings.</p>
+    <span class="pill">Defensive security</span>
+    <h1>Turn scans into decisions.</h1>
+    <p class="lede">Shield is a defensive security workflow engine. It runs your assessments as repeatable workflows and turns raw tool output into prioritised, trackable findings — so nothing gets lost in a wall of text.</p>
+    <div class="btns">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn ghost" href="#how">See how it works</a>
+    </div>
   </header>
 
-  <section>
-    <h2>What it does</h2>
-    <p class="muted">Most scanning is one tool, one command, one wall of text to read by hand. Shield models an assessment as a <strong style="color:var(--ink)">workflow</strong> — an ordered set of steps with a clear goal — runs it against a target, and normalises every tool's output into a single finding format you can triage, track and compare across runs.</p>
-  </section>
-
-  <section>
-    <h2>Core pieces</h2>
+  <section id="what">
+    <h2>Built for teams who test their own defences</h2>
+    <p class="sub">Most scanning is one tool, one command, one report to read by hand. Shield makes it a process you can repeat, review, and trust.</p>
     <div class="grid">
-      <div class="card">
-        <h3>Workflow engine</h3>
-        <p>Declarative, multi-step assessments instead of one-off commands — each step with its own inputs, outputs and success criteria.</p>
-      </div>
-      <div class="card">
-        <h3>Workflow library</h3>
-        <p>Pre-built templates covering recon, network and web scanning, API and cloud audits, container and dependency review, and more.</p>
-      </div>
-      <div class="card">
-        <h3>Unified findings</h3>
-        <p>Result parsers normalise each tool's raw output into one common finding format, so results are comparable and trackable.</p>
-      </div>
-      <div class="card">
-        <h3>CVE intelligence</h3>
-        <p>Matches discovered service versions against known CVE data to surface likely exposures automatically.</p>
-      </div>
-      <div class="card">
-        <h3>Live dashboard</h3>
-        <p>A React dashboard with a target list, scan queue, results panel and real-time workflow visualisation.</p>
-      </div>
-      <div class="card">
-        <h3>Runs on your own machine</h3>
-        <p>Shield is self-hosted. It orchestrates tools locally and keeps findings on infrastructure you control.</p>
-      </div>
+      <div class="card"><h3>Workflow engine</h3><p>Declarative, multi-step assessments instead of one-off commands — each step with clear inputs, outputs and success criteria.</p></div>
+      <div class="card"><h3>Ready-made library</h3><p>Pre-built templates for recon, network and web scanning, API and cloud audits, containers and dependencies.</p></div>
+      <div class="card"><h3>Unified findings</h3><p>Every tool's output normalised into one finding format, so results are comparable and trackable across runs.</p></div>
+      <div class="card"><h3>CVE intelligence</h3><p>Discovered service versions matched against known CVE data to surface likely exposures automatically.</p></div>
+      <div class="card"><h3>Live dashboard</h3><p>A clean dashboard with target list, scan queue, results panel and real-time workflow visualisation.</p></div>
+      <div class="card"><h3>Self-hosted</h3><p>Runs on infrastructure you control. Your targets and findings stay with you.</p></div>
     </div>
   </section>
 
-  <section>
-    <h2>Built for</h2>
-    <ul class="clean">
-      <li>Authorised security assessments and internal audits</li>
-      <li>Turning ad-hoc scanning into repeatable, reviewable process</li>
-      <li>Security research and education, with explicit permission on in-scope targets</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">Python · Flask</span>
-      <span class="tag">React · TypeScript · Vite</span>
-      <span class="tag">REST + Socket.IO</span>
-      <span class="tag">Self-hosted</span>
+  <section id="how">
+    <h2>How it works</h2>
+    <p class="sub">From a target to a tracked fix, in four steps.</p>
+    <div class="steps">
+      <div class="step"><p><b>Pick a workflow.</b> Choose an assessment template or build your own from the step library.</p></div>
+      <div class="step"><p><b>Run it against a target.</b> Shield orchestrates the underlying tools and collects every result.</p></div>
+      <div class="step"><p><b>Review unified findings.</b> Raw output becomes structured, prioritised findings with CVE context.</p></div>
+      <div class="step"><p><b>Track to closure.</b> Compare runs over time and watch issues get resolved.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact us</h2>
+    <p class="sub">Questions, a demo, or want to talk about your assessment process? Drop us a line.</p>
+    <div class="card">
+      <p style="margin:0 0 10px;color:var(--muted)">We'd love to hear from you.</p>
+      <a class="mail" href="mailto:shield@echlonlabs.com">shield@echlonlabs.com</a>
     </div>
   </section>
 
   <footer>
-    <p>Shield is a defensive tool, intended only for systems you own or are explicitly authorised to test. You are responsible for complying with all applicable laws.</p>
+    <p>Shield is a defensive tool, intended only for systems you own or are explicitly authorised to test.</p>
     <p>An <strong style="color:var(--ink)">EchlonLabs</strong> project · <a href="https://echlonlabs.com">echlonlabs.com</a></p>
   </footer>
 </div>
